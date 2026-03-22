@@ -12,7 +12,7 @@ import (
 
 var statusKeys = [][2]string{
 	{"↑↓/jk", "navigate"},
-	{"K", "kill"},
+	{"x", "kill"},
 	{"R", "refresh"},
 	{"Q", "quit"},
 }

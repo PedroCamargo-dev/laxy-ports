@@ -16,7 +16,7 @@ A lightweight, keyboard-driven TUI for monitoring open ports and killing process
 │✓ 3000   TCP     2345     [docker] my-app                                       │
 │○ 8080   TCP     -        kernel                                                │
 └───────────────────────────────────────────────────────────────────────────────┘
- [↑↓/jk] navigate  [K] kill  [R] refresh  [Q] quit
+ [↑↓/jk] navigate  [x] kill  [R] refresh  [Q] quit
 ```
 
 ## Features
@@ -24,7 +24,7 @@ A lightweight, keyboard-driven TUI for monitoring open ports and killing process
 - **Zero external dependencies** — reads `/proc/net/tcp`, `tcp6`, `udp`, `udp6` directly; never shells out to `ss`, `netstat`, or `lsof`
 - **Process resolution** — maps socket inodes to PIDs via `/proc/<pid>/fd`, then reads `/proc/<pid>/comm` for the process name
 - **Docker enrichment** — queries the Docker socket (`/var/run/docker.sock`) to label ports exposed by containers
-- **Kill on demand** — `K` sends `SIGTERM` to the owning process, escalates to `SIGKILL` after 500 ms if still alive
+- **Kill on demand** — `x` sends `SIGTERM` to the owning process, escalates to `SIGKILL` after 500 ms if still alive
 - **Auto-refresh** — list refreshes every 2 seconds; cursor follows the selected entry across refreshes
 - **Mouse support** — click to select a row; scroll wheel navigates the list
 
@@ -82,7 +82,7 @@ go run ./cmd/laxy-ports/
 |-----|--------|
 | `↑` / `k` | Move cursor up |
 | `↓` / `j` | Move cursor down |
-| `K` | Kill the process owning the selected port (SIGTERM → SIGKILL) |
+| `x` | Kill the process owning the selected port (SIGTERM → SIGKILL) |
 | `R` / `r` | Refresh port list immediately |
 | `Q` / `ctrl+c` | Quit |
 

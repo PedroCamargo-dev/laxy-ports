@@ -95,7 +95,7 @@ func (m Model) handleKey(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 			m.cursor++
 			m.adjustListOffset()
 		}
-	case "K":
+	case "x":
 		if m.cursor < len(m.ports) {
 			p := m.ports[m.cursor]
 			if p.PID <= 0 {
